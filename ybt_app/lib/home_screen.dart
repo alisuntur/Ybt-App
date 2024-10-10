@@ -1,8 +1,25 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'question_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  _HomeScreenState createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  String? name; // Kullanıcı ismini saklamak için bir değişken
+
+  @override
+  void initState() {
+    super.initState();
+    // Ekran yüklendiğinde kullanıcıdan isim almak için dialog aç
+    Future.delayed(Duration.zero, () {
+      _showNameInputDialog(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,9 +49,12 @@ class HomeScreen extends StatelessWidget {
                   backgroundColor: Colors.grey[300],
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'BİLGİ YARIŞMASINA HOŞGELDİN',
-                  style: TextStyle(
+                // Hoş geldin metni
+                Text(
+                  name != null
+                      ? '$name, BİLGİ YARIŞMASINA HOŞGELDİN'
+                      : 'BİLGİ YARIŞMASINA HOŞGELDİN',
+                  style: const TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -42,7 +62,8 @@ class HomeScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 40),
-                // Button Row (Genel Kültür, Bilişim, Karışık)
+                // Button Row (Genel Kültür, Bilişim, Puan Listesi)
+                const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -52,7 +73,9 @@ class HomeScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const SorularScreen()),
+                            builder: (context) => const SorularScreen(
+                                soruTuru: "1"), // Genel Kültür
+                          ),
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -75,7 +98,13 @@ class HomeScreen extends StatelessWidget {
                     // Bilişim Button
                     ElevatedButton(
                       onPressed: () {
-                        // Bilişim sorularına yönlendirme
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const SorularScreen(soruTuru: "2"), // Bilişim
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey[300],
@@ -94,10 +123,10 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 20),
-                    // Karışık Button
+                    // Puan Listesi Button
                     ElevatedButton(
                       onPressed: () {
-                        // Karışık sorulara yönlendirme
+                        _showScoreListDialog(context);
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey[300],
@@ -110,7 +139,7 @@ class HomeScreen extends StatelessWidget {
                             horizontal: screenWidth * 0.07,
                             vertical: screenHeight * 0.03),
                         child: const Text(
-                          'Karışık',
+                          'Puan Listesi',
                           style: TextStyle(fontSize: 18, color: Colors.black),
                         ),
                       ),
@@ -122,6 +151,67 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+
+  // Kullanıcıdan isim almak için dialog
+  void _showNameInputDialog(BuildContext context) {
+    final TextEditingController controller = TextEditingController();
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('İsminizi Girin'),
+          content: TextField(
+            controller: controller,
+            decoration: const InputDecoration(hintText: 'İsminizi girin'),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Gönder'),
+              onPressed: () {
+                String enteredName = controller.text;
+                if (enteredName.isNotEmpty) {
+                  setState(() {
+                    name = enteredName; // Kullanıcı ismini sakla
+                  });
+                  Navigator.of(context).pop(); // Dialogu kapat
+                  if (kDebugMode) {
+                    print('Kullanıcı İsmi: $enteredName'); // Debug için
+                  }
+                }
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  // Puan listesini gösteren dialog
+  void _showScoreListDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Puan Listesi'),
+          content: SingleChildScrollView(
+            child: ListBody(
+              children: [
+                Text(name ?? 'Henüz isim girilmedi.'),
+              ],
+            ),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Kapat'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

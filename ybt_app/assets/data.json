@@ -1,0 +1,38 @@
+[
+    {
+        "soruTuru": "1",
+        "soru": "Türkiye'nin başkenti neresidir?",
+        "cevap1": "İstanbul",
+        "cevap2": "Ankara",
+        "cevap3": "İzmir",
+        "cevap4": "Bursa",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Dünya'nın en yüksek dağı hangisidir?",
+        "cevap1": "K2",
+        "cevap2": "Everest",
+        "cevap3": "Kilimanjaro",
+        "cevap4": "Alplar",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Flutter hangi dili kullanmaktadır?",
+        "cevap1": "Java",
+        "cevap2": "Dart",
+        "cevap3": "Python",
+        "cevap4": "C++",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Dart hangi tür programlama dilidir?",
+        "cevap1": "Statik",
+        "cevap2": "Dinamik",
+        "cevap3": "Her ikisi",
+        "cevap4": "Hiçbiri",
+        "dogruCevap": "3"
+    }
+]

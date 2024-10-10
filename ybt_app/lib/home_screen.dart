@@ -6,6 +6,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Ekran genişliğini ve yüksekliğini MediaQuery ile alıyoruz
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -16,102 +20,105 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Logo Placeholder
-              CircleAvatar(
-                radius: 100,
-                backgroundImage: const AssetImage('assets/logo.png'),
-                backgroundColor: Colors.grey[300],
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'BİLGİ YARIŞMASINA HOŞGELDİN',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+          child: SingleChildScrollView(
+            // Taşmayı önlemek için
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Logo Placeholder
+                CircleAvatar(
+                  radius: screenWidth * 0.15, // Dinamik boyutlandırma
+                  backgroundImage: const AssetImage('assets/logo.png'),
+                  backgroundColor: Colors.grey[300],
                 ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 40),
-              // Button Row (Genel Kültür, Bilişim, Karışık)
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  // Genel Kültür Button
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SorularScreen()),
-                      );
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors.grey[300], // Button background color
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30.0, vertical: 20.0),
-                      child: Text(
-                        'Genel Kültür',
-                        style: TextStyle(fontSize: 18, color: Colors.black),
-                      ),
-                    ),
+                const SizedBox(height: 20),
+                const Text(
+                  'BİLGİ YARIŞMASINA HOŞGELDİN',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
                   ),
-                  const SizedBox(width: 20),
-                  // Bilişim Button
-                  ElevatedButton(
-                    onPressed: () {
-                      // Bilişim sorularına yönlendirme
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors.grey[300], // Button background color
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: 40),
+                // Button Row (Genel Kültür, Bilişim, Karışık)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Genel Kültür Button
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SorularScreen()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.grey[300],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: screenWidth * 0.07,
+                            vertical: screenHeight * 0.03),
+                        child: const Text(
+                          'Genel Kültür',
+                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        ),
                       ),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30.0, vertical: 20.0),
-                      child: Text(
-                        'Bilişim',
-                        style: TextStyle(fontSize: 18, color: Colors.black),
+                    const SizedBox(width: 20),
+                    // Bilişim Button
+                    ElevatedButton(
+                      onPressed: () {
+                        // Bilişim sorularına yönlendirme
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.grey[300],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: screenWidth * 0.07,
+                            vertical: screenHeight * 0.03),
+                        child: const Text(
+                          'Bilişim',
+                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        ),
                       ),
                     ),
-                  ),
-                  const SizedBox(width: 20),
-                  // Karışık Button
-                  ElevatedButton(
-                    onPressed: () {
-                      // Karışık sorulara yönlendirme
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          Colors.grey[300], // Button background color
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
+                    const SizedBox(width: 20),
+                    // Karışık Button
+                    ElevatedButton(
+                      onPressed: () {
+                        // Karışık sorulara yönlendirme
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.grey[300],
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: screenWidth * 0.07,
+                            vertical: screenHeight * 0.03),
+                        child: const Text(
+                          'Karışık',
+                          style: TextStyle(fontSize: 18, color: Colors.black),
+                        ),
                       ),
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: 30.0, vertical: 20.0),
-                      child: Text(
-                        'Karışık',
-                        style: TextStyle(fontSize: 18, color: Colors.black),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -21,6 +21,7 @@ class _SorularScreenState extends State<SorularScreen> {
   String? _selectedAnswer; // Seçilen cevabı tutar
   int _score = 0; // Toplam puanı tutar
   Color _backgroundColor = Colors.white; // Arka plan rengi
+  String? _correctAnswer; // Doğru cevabı tutar
 
   @override
   void initState() {
@@ -41,21 +42,23 @@ class _SorularScreenState extends State<SorularScreen> {
   void checkAnswer(Question question) {
     if (_selectedAnswer != null) {
       setState(() {
-        if (_selectedAnswer ==
-            question.cevaplar[int.parse(question.dogruCevap) - 1]) {
+        _correctAnswer = question
+            .cevaplar[int.parse(question.dogruCevap) - 1]; // Doğru cevabı al
+        if (_selectedAnswer == _correctAnswer) {
           _score += 10; // Doğru cevaba 10 puan ekle
-          _backgroundColor = Colors.green;
+          _backgroundColor = Colors.green; // Doğru cevaba yeşil
         } else {
-          _backgroundColor = Colors.red;
+          _backgroundColor = Colors.red; // Yanlış cevaba kırmızı
         }
       });
 
       Future.delayed(const Duration(seconds: 1), () {
         if (mounted) {
           setState(() {
-            _backgroundColor = Colors.white;
+            _backgroundColor = Colors.white; // Arka plan rengini sıfırla
             _currentQuestionIndex++;
             _selectedAnswer = null;
+            _correctAnswer = null; // Doğru cevabı sıfırla
           });
         }
       });
@@ -135,6 +138,11 @@ class _SorularScreenState extends State<SorularScreen> {
                   ),
                   Column(
                     children: question.cevaplar.map((cevap) {
+                      // Doğru cevabı belirle
+                      bool isCorrectAnswer = cevap ==
+                          question.cevaplar[int.parse(question.dogruCevap) - 1];
+                      bool isSelectedAnswer = _selectedAnswer == cevap;
+
                       return Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: SizedBox(
@@ -147,9 +155,14 @@ class _SorularScreenState extends State<SorularScreen> {
                               checkAnswer(question); // Cevabı kontrol et
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: _selectedAnswer == cevap
-                                  ? Colors.blueAccent
-                                  : Colors.grey,
+                              backgroundColor: isSelectedAnswer
+                                  ? (isCorrectAnswer
+                                      ? Colors.green // Doğru seçenek
+                                      : Colors.red) // Yanlış seçilen seçenek
+                                  : (isCorrectAnswer && _selectedAnswer != null
+                                      ? Colors
+                                          .yellow // Yanlış seçilen seçenek varsa doğru seçenek sarı
+                                      : Colors.grey), // Seçenek seçilmedi
                             ),
                             child: Text(
                               cevap,
@@ -160,14 +173,6 @@ class _SorularScreenState extends State<SorularScreen> {
                         ),
                       );
                     }).toList(),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      checkAnswer(question);
-                    },
-                    child: Text(_currentQuestionIndex < questions.length - 1
-                        ? 'Sonraki Soru'
-                        : 'Bitir'),
                   ),
                 ],
               ),

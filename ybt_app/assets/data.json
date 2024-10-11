@@ -18,6 +18,123 @@
         "dogruCevap": "2"
     },
     {
+        "soruTuru": "1",
+        "soru": "Türkiye'nin en büyük gölü hangisidir?",
+        "cevap1": "Van Gölü",
+        "cevap2": "Sapanca Gölü",
+        "cevap3": "Tuz Gölü",
+        "cevap4": "Göcek Gölü",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Dünyanın en kalabalık ülkesi hangisidir?",
+        "cevap1": "Hindistan",
+        "cevap2": "Çin",
+        "cevap3": "ABD",
+        "cevap4": "Brezilya",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Ayın dünyadan uzaklığı ortalama ne kadardır?",
+        "cevap1": "384,400 km",
+        "cevap2": "300,000 km",
+        "cevap3": "500,000 km",
+        "cevap4": "450,000 km",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Dünyanın en büyük okyanusu hangisidir?",
+        "cevap1": "Atlantik Okyanusu",
+        "cevap2": "Hint Okyanusu",
+        "cevap3": "Pasifik Okyanusu",
+        "cevap4": "Arktik Okyanusu",
+        "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "En uzun nehir hangisidir?",
+        "cevap1": "Amazon Nehri",
+        "cevap2": "Nil Nehri",
+        "cevap3": "Yangtze Nehri",
+        "cevap4": "Mısır Nehri",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Birleşmiş Milletler hangi yılda kurulmuştur?",
+        "cevap1": "1945",
+        "cevap2": "1950",
+        "cevap3": "1939",
+        "cevap4": "1960",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Türkiye Cumhuriyeti'nin kurucusu kimdir?",
+        "cevap1": "İsmet İnönü",
+        "cevap2": "Mustafa Kemal Atatürk",
+        "cevap3": "Fevzi Çakmak",
+        "cevap4": "Celal Bayar",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "İlk Nobel Ödülü ne zaman verilmiştir?",
+        "cevap1": "1901",
+        "cevap2": "1920",
+        "cevap3": "1910",
+        "cevap4": "1895",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Sıcaklık ölçü birimi nedir?",
+        "cevap1": "Kilogram",
+        "cevap2": "Celsius",
+        "cevap3": "Metre",
+        "cevap4": "Litre",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Hangi gezegen Güneş Sistemi'nde en büyük olanıdır?",
+        "cevap1": "Mars",
+        "cevap2": "Jüpiter",
+        "cevap3": "Satürn",
+        "cevap4": "Venüs",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Dünyanın en küçük ülkesi hangisidir?",
+        "cevap1": "Monako",
+        "cevap2": "Nauru",
+        "cevap3": "Vatikano",
+        "cevap4": "Maldivler",
+        "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Hangi ülke Avrupa'nın en büyük yüzölçümüne sahiptir?",
+        "cevap1": "Almanya",
+        "cevap2": "Fransa",
+        "cevap3": "Rusya",
+        "cevap4": "İtalya",
+        "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "1",
+        "soru": "Dünya'nın en büyük çölü hangisidir?",
+        "cevap1": "Sahara",
+        "cevap2": "Gobi",
+        "cevap3": "Kalahari",
+        "cevap4": "Antarktika",
+        "dogruCevap": "4"
+    },
+    {
         "soruTuru": "2",
         "soru": "Flutter hangi dili kullanmaktadır?",
         "cevap1": "Java",
@@ -34,5 +151,122 @@
         "cevap3": "Her ikisi",
         "cevap4": "Hiçbiri",
         "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Yazılım geliştirmede en yaygın kullanılan versiyon kontrol sistemi nedir?",
+        "cevap1": "SVN",
+        "cevap2": "Git",
+        "cevap3": "Mercurial",
+        "cevap4": "Bazaar",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi veritabanı yönetim sistemi açık kaynaklıdır?",
+        "cevap1": "Oracle",
+        "cevap2": "MySQL",
+        "cevap3": "Microsoft SQL Server",
+        "cevap4": "SQLite",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Yazılım geliştirme yaşam döngüsünde hangi aşama ilk olarak gelir?",
+        "cevap1": "Test",
+        "cevap2": "Gereksinim analizi",
+        "cevap3": "Tasarım",
+        "cevap4": "Kodlama",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi framework web uygulamaları geliştirmek için popülerdir?",
+        "cevap1": "Django",
+        "cevap2": "Flask",
+        "cevap3": "Ruby on Rails",
+        "cevap4": "Hepsi",
+        "dogruCevap": "4"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Yazılımın hangi aşamasında hata bulma işlemi yapılır?",
+        "cevap1": "Tasarım",
+        "cevap2": "Geliştirme",
+        "cevap3": "Test",
+        "cevap4": "Bakım",
+        "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi algoritma arama işlemlerinde en hızlısıdır?",
+        "cevap1": "Doğrusal arama",
+        "cevap2": "İkili arama",
+        "cevap3": "BFS",
+        "cevap4": "DFS",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi yazılım geliştirme yöntemi Agile yöntemidir?",
+        "cevap1": "Scrum",
+        "cevap2": "Waterfall",
+        "cevap3": "Spiral",
+        "cevap4": "Hepsi",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Veritabanında ilişkisel veri modelinin temeli nedir?",
+        "cevap1": "Tablo",
+        "cevap2": "Nesne",
+        "cevap3": "Dizi",
+        "cevap4": "Küme",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Yazılım geliştirmede hangi metodoloji en yaygın olarak kullanılır?",
+        "cevap1": "Agile",
+        "cevap2": "Waterfall",
+        "cevap3": "Lean",
+        "cevap4": "Hepsi",
+        "dogruCevap": "4"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi programlama dili web geliştirmede en yaygın olarak kullanılır?",
+        "cevap1": "JavaScript",
+        "cevap2": "Java",
+        "cevap3": "C#",
+        "cevap4": "Ruby",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi veri yapısı FIFO (First In First Out) özelliğine sahiptir?",
+        "cevap1": "Yığın",
+        "cevap2": "Kuyruk",
+        "cevap3": "Dizi",
+        "cevap4": "Liste",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi terim, yazılımda güvenlik açıklarını tanımlamak için kullanılır?",
+        "cevap1": "Eksiklik",
+        "cevap2": "Hata",
+        "cevap3": "Vulnerabilite",
+        "cevap4": "Tehdit",
+        "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Yazılım geliştirme sürecinde hangi aşama en önemlisidir?",
+        "cevap1": "Planlama",
+        "cevap2": "Analiz",
+        "cevap3": "Tasarım",
+        "cevap4": "Uygulama",
+        "dogruCevap": "1"
     }
 ]

@@ -1,11 +1,15 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:path_provider/path_provider.dart'; // Dosya işlemleri için
+import 'dart:io';
 
 class SorularScreen extends StatefulWidget {
   final String soruTuru;
+  final String userName; // Kullanıcı adı
 
-  const SorularScreen({super.key, required this.soruTuru});
+  const SorularScreen(
+      {super.key, required this.soruTuru, required this.userName});
 
   @override
   _SorularScreenState createState() => _SorularScreenState();
@@ -13,8 +17,10 @@ class SorularScreen extends StatefulWidget {
 
 class _SorularScreenState extends State<SorularScreen> {
   late Future<List<Question>> _questions;
-  int _currentQuestionIndex = 0; // Geçerli soru indeksini tutar.
-  String? _selectedAnswer; // Seçilen cevabı tutar.
+  int _currentQuestionIndex = 0; // Geçerli soru indeksi
+  String? _selectedAnswer; // Seçilen cevabı tutar
+  int _score = 0; // Toplam puanı tutar
+  Color _backgroundColor = Colors.white; // Arka plan rengi
 
   @override
   void initState() {
@@ -26,15 +32,58 @@ class _SorularScreenState extends State<SorularScreen> {
     final String response = await rootBundle.loadString('assets/data.json');
     final List<dynamic> data = json.decode(response);
 
-    // Soru türüne göre filtreleme
     return data
         .where((item) => item['soruTuru'] == widget.soruTuru)
         .map((item) => Question.fromJson(item))
         .toList();
   }
 
+  void checkAnswer(Question question) {
+    if (_selectedAnswer != null) {
+      setState(() {
+        if (_selectedAnswer ==
+            question.cevaplar[int.parse(question.dogruCevap) - 1]) {
+          _score += 10; // Doğru cevaba 10 puan ekle
+          _backgroundColor = Colors.green;
+        } else {
+          _backgroundColor = Colors.red;
+        }
+      });
+
+      Future.delayed(const Duration(seconds: 1), () {
+        if (mounted) {
+          setState(() {
+            _backgroundColor = Colors.white;
+            _currentQuestionIndex++;
+            _selectedAnswer = null;
+          });
+        }
+      });
+    }
+  }
+
+  Future<void> saveScore() async {
+    final directory = await getApplicationDocumentsDirectory();
+    final filePath = '${directory.path}/puan.json';
+    final file = File(filePath);
+
+    List<dynamic> scoreList = [];
+
+    if (await file.exists()) {
+      String contents = await file.readAsString();
+      scoreList = json.decode(contents);
+    }
+
+    // Kullanıcı ismini ve puanı kaydet
+    scoreList.add({"name": widget.userName, "score": _score});
+
+    await file.writeAsString(json.encode(scoreList));
+  }
+
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -53,63 +102,76 @@ class _SorularScreenState extends State<SorularScreen> {
 
           final questions = snapshot.data!;
 
-          // Eğer geçerli soru indeksi toplam sorulardan büyükse, sonuçları göster
           if (_currentQuestionIndex >= questions.length) {
-            return const Center(child: Text('Tüm sorular cevaplandı!'));
+            saveScore(); // Puanı kaydet
+            return Center(
+              child: Text(
+                'Tüm sorular cevaplandı!\nHoşgeldin ${widget.userName}!\nToplam Puanınız: $_score',
+                style:
+                    const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            );
           }
 
           final question = questions[_currentQuestionIndex];
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  question.soru,
-                  style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.bold),
-                  textAlign: TextAlign.center,
-                ),
+
+          return AnimatedContainer(
+            duration: const Duration(milliseconds: 500),
+            color: _backgroundColor,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Text(
+                      question.soru,
+                      style: const TextStyle(
+                          fontSize: 18, fontWeight: FontWeight.bold),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                  Column(
+                    children: question.cevaplar.map((cevap) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: SizedBox(
+                          width: screenWidth * 0.9,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              setState(() {
+                                _selectedAnswer = cevap;
+                              });
+                              checkAnswer(question); // Cevabı kontrol et
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: _selectedAnswer == cevap
+                                  ? Colors.blueAccent
+                                  : Colors.grey,
+                            ),
+                            child: Text(
+                              cevap,
+                              textAlign: TextAlign.center,
+                              style: const TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        ),
+                      );
+                    }).toList(),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      checkAnswer(question);
+                    },
+                    child: Text(_currentQuestionIndex < questions.length - 1
+                        ? 'Sonraki Soru'
+                        : 'Bitir'),
+                  ),
+                ],
               ),
-              ...question.cevaplar.map((cevap) {
-                return RadioListTile<String>(
-                  title: Text(cevap),
-                  value: cevap,
-                  groupValue: _selectedAnswer,
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedAnswer = value;
-                    });
-                  },
-                );
-              }),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    if (_selectedAnswer != null) {
-                      // Seçilen cevap kontrolü yapabilirsin
-                      // Doğru cevabı kontrol et
-                      if (_selectedAnswer ==
-                          question
-                              .cevaplar[int.parse(question.dogruCevap) - 1]) {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Doğru cevap!')),
-                        );
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(content: Text('Yanlış cevap!')),
-                        );
-                      }
-                      _currentQuestionIndex++;
-                      _selectedAnswer = null; // Seçimi sıfırla
-                    }
-                  });
-                },
-                child: Text(_currentQuestionIndex < questions.length - 1
-                    ? 'Sonraki Soru'
-                    : 'Bitir'),
-              ),
-            ],
+            ),
           );
         },
       ),

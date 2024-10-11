@@ -1,6 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'question_screen.dart';
+import 'package:ybt_app/question_screen.dart';
+import 'puanlist.dart'; // Puan listesi için yeni sayfa
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,15 +10,52 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String? name; // Kullanıcı ismini saklamak için bir değişken
+  // Kullanıcı ismini saklamak için bir değişken
+  String userName = '';
 
-  @override
-  void initState() {
-    super.initState();
-    // Ekran yüklendiğinde kullanıcıdan isim almak için dialog aç
-    Future.delayed(Duration.zero, () {
-      _showNameInputDialog(context);
-    });
+  // Kullanıcıdan isim almak için bir dialog açan fonksiyon
+  void _showUserNameDialog(String soruTuru) {
+    TextEditingController controller = TextEditingController();
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: const Text('İsim Giriniz'),
+          content: TextField(
+            controller: controller,
+            decoration: const InputDecoration(hintText: "İsminizi girin"),
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: const Text('Kaydet'),
+              onPressed: () {
+                setState(() {
+                  userName = controller.text; // Kullanıcı ismini güncelle
+                });
+                Navigator.of(context).pop();
+                // Sorular ekranına yönlendir
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SorularScreen(
+                      soruTuru: soruTuru,
+                      userName: userName,
+                    ),
+                  ),
+                );
+              },
+            ),
+            TextButton(
+              child: const Text('İptal'),
+              onPressed: () {
+                Navigator.of(context).pop(); // Dialogu kapat
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -50,11 +87,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 const SizedBox(height: 20),
                 // Hoş geldin metni
-                Text(
-                  name != null
-                      ? '$name, BİLGİ YARIŞMASINA HOŞGELDİN'
-                      : 'BİLGİ YARIŞMASINA HOŞGELDİN',
-                  style: const TextStyle(
+                const Text(
+                  'BİLGİ YARIŞMASINA HOŞGELDİN',
+                  style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -70,13 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     // Genel Kültür Button
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SorularScreen(
-                                soruTuru: "1"), // Genel Kültür
-                          ),
-                        );
+                        _showUserNameDialog("1"); // Genel Kültür için dialog aç
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey[300],
@@ -98,13 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     // Bilişim Button
                     ElevatedButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                const SorularScreen(soruTuru: "2"), // Bilişim
-                          ),
-                        );
+                        _showUserNameDialog("2"); // Bilişim için dialog aç
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey[300],
@@ -126,7 +149,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     // Puan Listesi Button
                     ElevatedButton(
                       onPressed: () {
-                        _showScoreListDialog(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const PuanList(), // PuanList ekranına git
+                          ),
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.grey[300],
@@ -151,67 +180,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-    );
-  }
-
-  // Kullanıcıdan isim almak için dialog
-  void _showNameInputDialog(BuildContext context) {
-    final TextEditingController controller = TextEditingController();
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text('İsminizi Girin'),
-          content: TextField(
-            controller: controller,
-            decoration: const InputDecoration(hintText: 'İsminizi girin'),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Gönder'),
-              onPressed: () {
-                String enteredName = controller.text;
-                if (enteredName.isNotEmpty) {
-                  setState(() {
-                    name = enteredName; // Kullanıcı ismini sakla
-                  });
-                  Navigator.of(context).pop(); // Dialogu kapat
-                  if (kDebugMode) {
-                    print('Kullanıcı İsmi: $enteredName'); // Debug için
-                  }
-                }
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
-  // Puan listesini gösteren dialog
-  void _showScoreListDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: const Text('Puan Listesi'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: [
-                Text(name ?? 'Henüz isim girilmedi.'),
-              ],
-            ),
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: const Text('Kapat'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
     );
   }
 }

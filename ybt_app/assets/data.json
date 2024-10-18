@@ -112,7 +112,7 @@
         "soru": "Dünyanın en küçük ülkesi hangisidir?",
         "cevap1": "Monako",
         "cevap2": "Nauru",
-        "cevap3": "Vatikano",
+        "cevap3": "Vatikan",
         "cevap4": "Maldivler",
         "dogruCevap": "3"
     },
@@ -208,65 +208,344 @@
     },
     {
         "soruTuru": "2",
-        "soru": "Hangi yazılım geliştirme yöntemi Agile yöntemidir?",
-        "cevap1": "Scrum",
-        "cevap2": "Waterfall",
-        "cevap3": "Spiral",
-        "cevap4": "Hepsi",
-        "dogruCevap": "1"
-    },
-    {
-        "soruTuru": "2",
-        "soru": "Veritabanında ilişkisel veri modelinin temeli nedir?",
-        "cevap1": "Tablo",
-        "cevap2": "Nesne",
-        "cevap3": "Dizi",
-        "cevap4": "Küme",
-        "dogruCevap": "1"
-    },
-    {
-        "soruTuru": "2",
-        "soru": "Yazılım geliştirmede hangi metodoloji en yaygın olarak kullanılır?",
-        "cevap1": "Agile",
-        "cevap2": "Waterfall",
-        "cevap3": "Lean",
+        "soru": "Hangi platform Flutter uygulamalarının derlenmesi için kullanılır?",
+        "cevap1": "Android Studio",
+        "cevap2": "Visual Studio Code",
+        "cevap3": "Xcode",
         "cevap4": "Hepsi",
         "dogruCevap": "4"
     },
     {
         "soruTuru": "2",
-        "soru": "Hangi programlama dili web geliştirmede en yaygın olarak kullanılır?",
-        "cevap1": "JavaScript",
-        "cevap2": "Java",
-        "cevap3": "C#",
-        "cevap4": "Ruby",
-        "dogruCevap": "1"
-    },
-    {
-        "soruTuru": "2",
-        "soru": "Hangi veri yapısı FIFO (First In First Out) özelliğine sahiptir?",
-        "cevap1": "Yığın",
-        "cevap2": "Kuyruk",
-        "cevap3": "Dizi",
-        "cevap4": "Liste",
+        "soru": "RESTful servisler hangi veri formatını genellikle kullanır?",
+        "cevap1": "XML",
+        "cevap2": "JSON",
+        "cevap3": "YAML",
+        "cevap4": "CSV",
         "dogruCevap": "2"
     },
     {
         "soruTuru": "2",
-        "soru": "Hangi terim, yazılımda güvenlik açıklarını tanımlamak için kullanılır?",
-        "cevap1": "Eksiklik",
-        "cevap2": "Hata",
-        "cevap3": "Vulnerabilite",
-        "cevap4": "Tehdit",
+        "soru": "Hangi teknoloji sunucu taraflı programlama için kullanılır?",
+        "cevap1": "PHP",
+        "cevap2": "HTML",
+        "cevap3": "CSS",
+        "cevap4": "JavaScript",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi algoritma sıralama işlemi için kullanılır?",
+        "cevap1": "Dijkstra",
+        "cevap2": "Buble Sort",
+        "cevap3": "Prim",
+        "cevap4": "DFS",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Bir yazılım projesinde başarı faktörleri nelerdir?",
+        "cevap1": "Doğru planlama",
+        "cevap2": "İyi bir ekip",
+        "cevap3": "Doğru teknoloji kullanımı",
+        "cevap4": "Hepsi",
+        "dogruCevap": "4"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi araç kod yazarken hataları tespit etmeye yardımcı olur?",
+        "cevap1": "Compiler",
+        "cevap2": "Debugger",
+        "cevap3": "Linter",
+        "cevap4": "Hepsi",
+        "dogruCevap": "4"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Yazılımda sürdürülebilirlik ne anlama gelir?",
+        "cevap1": "Yazılımın sürekli çalışabilir olması",
+        "cevap2": "Yazılımın çevresel etkisinin az olması",
+        "cevap3": "Yazılımın güncellemelerle gelişebilir olması",
+        "cevap4": "Yazılımın tekrar kullanılabilir olması",
         "dogruCevap": "3"
     },
     {
         "soruTuru": "2",
-        "soru": "Yazılım geliştirme sürecinde hangi aşama en önemlisidir?",
-        "cevap1": "Planlama",
-        "cevap2": "Analiz",
-        "cevap3": "Tasarım",
-        "cevap4": "Uygulama",
+        "soru": "Hangi veri yapısı LIFO prensibi ile çalışır?",
+        "cevap1": "Kuyruk",
+        "cevap2": "Yığın",
+        "cevap3": "Bağlı liste",
+        "cevap4": "Ağaç",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi araçlar yazılım geliştirme süreçlerini yönetmek için kullanılır?",
+        "cevap1": "Jira",
+        "cevap2": "Trello",
+        "cevap3": "GitHub",
+        "cevap4": "Hepsi",
+        "dogruCevap": "4"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Yazılım geliştirirken refactoring ne anlama gelir?",
+        "cevap1": "Kodun yeniden yazılması",
+        "cevap2": "Kodun optimize edilmesi",
+        "cevap3": "Kodun düzeltilmesi",
+        "cevap4": "Kodun tamamen silinmesi",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Python dilinde değişken ataması nasıl yapılır?",
+        "cevap1": "x = 5",
+        "cevap2": "int x = 5",
+        "cevap3": "let x = 5",
+        "cevap4": "var x = 5",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "HTML'de bir resim nasıl eklenir?",
+        "cevap1": "<img src='image.jpg'>",
+        "cevap2": "<image source='image.jpg'>",
+        "cevap3": "<picture src='image.jpg'>",
+        "cevap4": "<src='image.jpg'>",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Java'da sınıf tanımlaması nasıl yapılır?",
+        "cevap1": "class MyClass {}",
+        "cevap2": "class = MyClass {}",
+        "cevap3": "def class MyClass {}",
+        "cevap4": "let class MyClass {}",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "SQL'de bir veriyi güncellemek için hangi komut kullanılır?",
+        "cevap1": "UPDATE",
+        "cevap2": "MODIFY",
+        "cevap3": "CHANGE",
+        "cevap4": "ALTER",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "CSS'de arka plan rengini değiştirmek için hangi özellik kullanılır?",
+        "cevap1": "color",
+        "cevap2": "background-color",
+        "cevap3": "bgcolor",
+        "cevap4": "fill-color",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Git'te hangi komut değişiklikleri staging alanına ekler?",
+        "cevap1": "git add",
+        "cevap2": "git commit",
+        "cevap3": "git push",
+        "cevap4": "git stage",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "JavaScript'te bir fonksiyon nasıl tanımlanır?",
+        "cevap1": "def myFunction()",
+        "cevap2": "function myFunction()",
+        "cevap3": "fun myFunction()",
+        "cevap4": "lambda myFunction()",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "C dilinde bir dizi nasıl tanımlanır?",
+        "cevap1": "array myArray[10];",
+        "cevap2": "int myArray[10];",
+        "cevap3": "list myArray[10];",
+        "cevap4": "set myArray[10];",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Python'da bir liste nasıl oluşturulur?",
+        "cevap1": "list = {}",
+        "cevap2": "list = []",
+        "cevap3": "list = ()",
+        "cevap4": "list = //",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Yazılım geliştirirken kodun başka bir programcı tarafından anlaşılabilir olması için ne önemlidir?",
+        "cevap1": "Yorum satırları eklemek",
+        "cevap2": "Kodun kısaltmalarla dolu olması",
+        "cevap3": "Uzun değişken isimleri kullanmak",
+        "cevap4": "Sadece bir satırda kod yazmak",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Git'te hangi komut uzak depodaki değişiklikleri yerel depoya çeker?",
+        "cevap1": "git pull",
+        "cevap2": "git push",
+        "cevap3": "git clone",
+        "cevap4": "git fetch",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Bir yazılım projesinde hangi test yazılımın belirli işlevlerinin doğru çalıştığını kontrol eder?",
+        "cevap1": "Ünite testi",
+        "cevap2": "Entegrasyon testi",
+        "cevap3": "Sistem testi",
+        "cevap4": "Kabul testi",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Java'da hangi anahtar kelime bir nesnenin örneğini oluşturur?",
+        "cevap1": "new",
+        "cevap2": "create",
+        "cevap3": "init",
+        "cevap4": "make",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "SQL'de bir tabloyu silmek için hangi komut kullanılır?",
+        "cevap1": "DELETE",
+        "cevap2": "DROP",
+        "cevap3": "REMOVE",
+        "cevap4": "ERASE",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Python'da hangi fonksiyon bir sayıyı yuvarlar?",
+        "cevap1": "round()",
+        "cevap2": "ceil()",
+        "cevap3": "floor()",
+        "cevap4": "truncate()",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "JavaScript'te hangi anahtar kelime değişken tanımlamak için kullanılır?",
+        "cevap1": "var",
+        "cevap2": "int",
+        "cevap3": "let",
+        "cevap4": "def",
+        "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "CSS'de yazı tipi rengini değiştirmek için hangi özellik kullanılır?",
+        "cevap1": "font-color",
+        "cevap2": "text-color",
+        "cevap3": "color",
+        "cevap4": "background-color",
+        "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "C# dilinde hangi anahtar kelime sınıfı kalıtım yoluyla başka bir sınıftan türetmek için kullanılır?",
+        "cevap1": "inherit",
+        "cevap2": "extends",
+        "cevap3": "derive",
+        "cevap4": "base",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi veri yapısı FIFO (First In, First Out) prensibi ile çalışır?",
+        "cevap1": "Yığın",
+        "cevap2": "Kuyruk",
+        "cevap3": "Ağaç",
+        "cevap4": "Bağlı Liste",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Java'da hangi anahtar kelime bir istisnayı fırlatmak için kullanılır?",
+        "cevap1": "throw",
+        "cevap2": "raise",
+        "cevap3": "catch",
+        "cevap4": "error",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Python'da dosya açmak için hangi fonksiyon kullanılır?",
+        "cevap1": "open()",
+        "cevap2": "file()",
+        "cevap3": "read()",
+        "cevap4": "load()",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "SQL'de bir tablodaki tüm verileri silmek için hangi komut kullanılır?",
+        "cevap1": "DELETE",
+        "cevap2": "REMOVE",
+        "cevap3": "CLEAR",
+        "cevap4": "TRUNCATE",
+        "dogruCevap": "4"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Java'da sınıfın kendisini referans eden anahtar kelime hangisidir?",
+        "cevap1": "self",
+        "cevap2": "this",
+        "cevap3": "super",
+        "cevap4": "base",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi algoritma, graf üzerinde en kısa yolu bulmak için kullanılır?",
+        "cevap1": "Dijkstra",
+        "cevap2": "Bubble Sort",
+        "cevap3": "Quick Sort",
+        "cevap4": "DFS",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "JavaScript'te koşullu ifade oluşturmak için hangi yapı kullanılır?",
+        "cevap1": "switch-case",
+        "cevap2": "if-else",
+        "cevap3": "while",
+        "cevap4": "for",
+        "dogruCevap": "2"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "HTML'de form verilerini sunucuya göndermek için hangi yöntem kullanılır?",
+        "cevap1": "POST",
+        "cevap2": "GET",
+        "cevap3": "PUT",
+        "cevap4": "DELETE",
+        "dogruCevap": "1"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Hangi programlama dili 'Kendi Kendini Yönetebilirlik' paradigması ile ünlüdür?",
+        "cevap1": "C++",
+        "cevap2": "Java",
+        "cevap3": "Rust",
+        "cevap4": "Python",
+        "dogruCevap": "3"
+    },
+    {
+        "soruTuru": "2",
+        "soru": "Python'da bir sözlük nasıl tanımlanır?",
+        "cevap1": "dict = {}",
+        "cevap2": "dict = []",
+        "cevap3": "dict = ()",
+        "cevap4": "dict = //",
         "dogruCevap": "1"
     }
 ]
